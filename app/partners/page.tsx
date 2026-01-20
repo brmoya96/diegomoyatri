@@ -1,163 +1,297 @@
+"use client";
 // app/partners/page.tsx
 import Image from "next/image";
 import Header from "../components/Header";
+
+// EJEMPLO de data. Usa tu array real "partners"
 const partners = [
   {
     key: "adidas",
-    name: "Adidas",
-    logo: "/sponsors/adidas.png",
-    photo: "/partners/adidas.jpg",
-    text:
-      "Adidas me acompaña en el alto rendimiento: material de competencia, entrenamiento y un enfoque total en performance.",
-    cta: { label: "Ver Adidas", href: "https://www.adidas.cl" },
+    name: "ADIDAS",
+    logo: "/sponsors/adidas-w-3.png",
+    text: "Adidas me acompaña en cada etapa del alto rendimiento, entregando equipamiento de competencia y entrenamiento diseñado para exigencias máximas. Compartimos una visión clara: innovar, superar límites y rendir al más alto nivel, en cada sesión y en cada carrera.",
+    photo: "/partners/adidas.jpeg",
+    cta: { href: "https://www.adidas.cl", label: "Ver Adidas" },
   },
   {
     key: "itau",
-    name: "Itaú",
+    name: "ITAU",
     logo: "/sponsors/itau.png",
-    photo: "/partners/itau.jpg",
-    text:
-      "Itaú impulsa el proyecto a largo plazo. Un partner clave para seguir compitiendo al máximo nivel.",
-    cta: { label: "Ver Itaú", href: "https://www.itau.cl" },
+    text: "Itaú me acompaña como partner estratégico a largo plazo, entregando respaldo y visión para seguir desarrollando mi carrera deportiva con estabilidad y proyección. Un apoyo clave para competir al más alto nivel, dentro y fuera de la pista.",
+    photo: "/partners/itau.png",
+    cta: { href: "https://www.itau.cl/personas", label: "Ver Itaú" },
   },
   {
     key: "subaru",
-    name: "Subaru",
+    name: "SUBARU",
     logo: "/sponsors/subaru.png",
-    photo: "/partners/subaru.jpg",
-    text:
-      "Subaru es parte del camino: logística, viajes y soporte en competencias. Rendimiento también fuera de la pista.",
-    cta: { label: "Ver Subaru", href: "https://www.subaru.cl" },
+    text: "Subaru representa confiabilidad, rendimiento y seguridad, valores fundamentales tanto en el deporte como en la vida diaria. Su apoyo me permite enfocarme en entrenar y competir, sabiendo que cuento con un partner sólido en cada desafío.",
+    photo: "/partners/subaru.jpeg",
+    cta: { href: "https://www.subaru.cl/", label: "Ver Subaru" },
   },
   {
     key: "z2",
     name: "Z2",
     logo: "/sponsors/z2.png",
+    text: "Z2 es parte esencial de mi preparación y competencia. Su enfoque en nutrición deportiva de alto rendimiento me permite optimizar cada entrenamiento y carrera, asegurando energía, recuperación y consistencia en los momentos decisivos.",
     photo: "/partners/z2.jpg",
-    text:
-      "Subaru es parte del camino: logística, viajes y soporte en competencias. Rendimiento también fuera de la pista.",
-    cta: { label: "Ver Subaru", href: "https://www.z2.cl" },
+    cta: { href: "https://www.z2alwayschasingcl.com/", label: "Ver Z2" },
   },
   {
-    key: "alemana sport",
-    name: "Alemana Sport",
+    key: "alemanasport",
+    name: "ALEMANAS PORT",
     logo: "/sponsors/alemana-sport.png",
-    photo: "/partners/alemana-sport.jpg",
-    text:
-      "Subaru es parte del camino: logística, viajes y soporte en competencias. Rendimiento también fuera de la pista.",
-    cta: { label: "Ver Subaru", href: "https://www.alemanasport.cl" },
+    text: "Alemana Sport me acompaña como aliado técnico, entregando equipamiento y soporte especializado para el alto rendimiento. Compartimos una visión clara: cuidar cada detalle para competir al máximo nivel.",
+    photo: "/partners/alemana-sport.png",
+    cta: { href: "https://www.alemanasport.cl/", label: "Ver Alemana Sport" },
   },
   {
     key: "factor",
-    name: "Factor",
+    name: "FACTOR",
     logo: "/sponsors/factor.png",
+    text: "Factor representa ingeniería, velocidad y precisión. Competir sobre una bicicleta diseñada sin compromisos me permite expresar todo mi potencial, tanto en entrenamientos como en las carreras más exigentes del circuito internacional.",
     photo: "/partners/factor.jpg",
-    text:
-      "Subaru es parte del camino: logística, viajes y soporte en competencias. Rendimiento también fuera de la pista.",
-    cta: { label: "Ver Subaru", href: "https://www.weltek.cl" },
+    cta: { href: "https://www.weltek.cl/102-factor-bikes", label: "Ver Factor" },
   },
-    {
-    key: "socks labs",
-    name: "Socks Labs",
+  {
+    key: "blueseventy",
+    name: "BLUESEVENTY",
+    logo: "/sponsors/blueseventy.png",
+    text: "Blueseventy ha sido clave en mi desarrollo en el agua. Sus trajes y equipamiento me entregan eficiencia, confianza y rendimiento en cada brazada, marcando la diferencia desde el inicio de la competencia.",
+    photo: "/partners/blueseventys.jpg",
+    cta: { href: "https://weltek.cl/12-wetsuits", label: "Ver Blueseventy" },
+  },
+  {
+    key: "sockslabs",
+    name: "SOCKS LAB",
     logo: "/sponsors/socks-labs.png",
+    text: "Socks Labs cuida uno de los aspectos más subestimados del rendimiento: la comodidad y protección durante largas horas de esfuerzo. Un detalle que marca la diferencia en entrenamientos intensos y días de carrera.",
     photo: "/partners/socks-labs.jpg",
-    text:
-      "Subaru es parte del camino: logística, viajes y soporte en competencias. Rendimiento también fuera de la pista.",
-    cta: { label: "Ver Subaru", href: "https://www.sockslabs.cl" },
+    cta: { href: "https://sockslab.cl/", label: "Ver Socks Labs" },
   },
-  // agrega más...
 ];
 
 export default function PartnersPage() {
   return (
-    <main>
+    <div style={{ minHeight: "100vh" }}>
       <Header />
-    <main></main>
-      {/* HERO / título */}
-      <section className="px-6 pt-16 pb-10">
-        <div className="mx-auto max-w-6xl">
-          <h1 className="text-white text-5xl md:text-6xl font-light tracking-wide">
-            Partners
-          </h1>
-          <p className="mt-4 text-white/70 max-w-2xl">
-            Marcas que impulsan el proyecto.
-          </p>
-        </div>
-      </section>
 
-      {/* LOGOS GRID (estilo Laidlow: logos chicos, en color, aire) */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-14">
-          <h2 className="text-black text-5xl font-light tracking-wide">
-            Sponsors & Partners
-          </h2>
+      {/* CONTENEDOR PRINCIPAL (MISMO FORMATO QUE RESULTADOS) */}
+      <main
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          padding: "40px 24px",
+          color: "white",
+        }}
+      >
+        {/* HERO / título */}
+        <h1 style={{ fontSize: 44, marginBottom: 12 }}>Auspiciadores</h1>
+        <p style={{ opacity: 0.8, maxWidth: 720 }}>
+          Marcas que impulsan mi proyecto.
+        </p>
 
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-10 gap-y-10 items-center">
-            {partners.map((p) => (
-              <div key={p.key} className="flex items-center justify-center">
-                <Image
-                  src={p.logo}
-                  alt={p.name}
-                  width={160}
-                  height={60}
-                  className="h-10 w-auto object-contain"
-                  priority={false}
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <a
-              href="#all"
-              className="inline-flex items-center gap-2 text-black/80 hover:text-black"
+        {/* LOGOS GRID (clickeables -> bajan a su sección) */}
+        <section style={{ marginTop: 28 }}>
+          <div
+            style={{
+              borderRadius: 18,
+              border: "1px solid rgba(255,255,255,.12)",
+              background: "rgba(0,0,0,.22)",
+              padding: 22,
+            }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(6, minmax(0, 1fr))",
+                gap: 18,
+                alignItems: "center",
+              }}
             >
-              Todos los partners <span aria-hidden>→</span>
-            </a>
-          </div>
-        </div>
-      </section>
+              {partners.map((p) => (
+                <a
+                  key={p.key}
+                  href={`#${p.key}`}
+                  aria-label={`Ir a ${p.name}`}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 10,
+                    borderRadius: 14,
+                    border: "1px solid rgba(255,255,255,.08)",
+                    background: "rgba(0,0,0,.18)",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    transition: "opacity .2s ease, transform .2s ease",
+                    opacity: 0.95,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = "1";
+                    e.currentTarget.style.transform = "translateY(-1px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = "0.95";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  <Image
+                    src={p.logo}
+                    alt={p.name}
+                    width={140}
+                    height={60}
+                    style={{ height: 34, width: "auto", objectFit: "contain" }}
+                  />
+                </a>
+              ))}
+            </div>
 
-      {/* STORIES por marca (foto + texto al lado, alternado) */}
-      <section id="all" className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-16 space-y-20">
+            <div style={{ marginTop: 18 }}>
+              <a
+                href="#all"
+                style={{
+                  color: "rgba(255,255,255,.8)",
+                  textDecoration: "none",
+                  transition: "opacity .2s ease",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.8")}
+              >
+                Todos los partners <span aria-hidden>→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* STORIES por marca (foto + texto al lado, alternado, mismo look oscuro) */}
+        <section id="all" style={{ marginTop: 28, display: "grid", gap: 22 }}>
           {partners.map((p, idx) => {
             const reverse = idx % 2 === 1;
+
             return (
               <div
                 key={p.key}
-                className={`grid gap-10 items-center lg:grid-cols-12 ${
-                  reverse ? "" : ""
-                }`}
+                id={p.key} // 👈 destino para el click del logo
+                style={{
+                  scrollMarginTop: 140, // 👈 para que no quede tapado por el header
+                  display: "grid",
+                  gap: 18,
+                  alignItems: "center",
+                  gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
+                  padding: 18,
+                  borderRadius: 18,
+                  border: "1px solid rgba(255,255,255,.12)",
+                  background: "rgba(0,0,0,.22)",
+                }}
               >
+                {/* FOTO */}
+                <div
+                  style={{
+                    gridColumn: "span 7 / span 7",
+                    order: reverse ? 2 : 1,
+                    borderRadius: 16,
+                    overflow: "hidden",
+                    border: "1px solid rgba(255,255,255,.10)",
+                    background: "rgba(255,255,255,.04)",
+                    minHeight: 320,
+                    position: "relative",
+                  }}
+                >
+                  {p.photo ? (
+                    <Image
+                      src={p.photo}
+                      alt={`${p.name} x Diego`}
+                      fill
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "50% 50%",
+                      }}
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        height: 320,
+                        display: "grid",
+                        placeItems: "center",
+                        opacity: 0.7,
+                      }}
+                    >
+                      Agrega una foto en <code>p.photo</code>
+                    </div>
+                  )}
+                </div>
 
                 {/* TEXTO */}
-                <div className={`lg:col-span-5 ${reverse ? "lg:order-1" : ""}`}>
-                  <div className="bg-[#f2f2f2] p-10 md:p-12">
-                    <h3 className="text-5xl font-light tracking-wide text-black">
-                      {p.name}
-                    </h3>
-                    <p className="mt-6 text-black/70 leading-relaxed">
-                      {p.text}
-                    </p>
+                <div
+                  style={{
+                    gridColumn: "span 5 / span 5",
+                    order: reverse ? 1 : 2,
+                    padding: 8,
+                  }}
+                >
+                  <h3 style={{ fontSize: 40, fontWeight: 600, margin: 0 }}>
+                    {p.name}
+                  </h3>
+                  <p style={{ marginTop: 12, opacity: 0.8, lineHeight: 1.7 }}>
+                    {p.text}
+                  </p>
 
-                    <div className="mt-8">
-                      <a
-                        href={p.cta.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center px-10 py-4 bg-black text-white tracking-wide"
-                      >
-                        {p.cta.label}
-                      </a>
-                    </div>
+                  <div style={{ marginTop: 14, display: "flex", gap: 10 }}>
+                    <a
+                      href={p.cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "12px 18px",
+                        borderRadius: 14,
+                        border: "1px solid rgba(255,255,255,.14)",
+                        background: "rgba(255,255,255,.06)",
+                        color: "white",
+                        textDecoration: "none",
+                        transition: "opacity .2s ease",
+                      }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.opacity = "0.9")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.opacity = "1")
+                      }
+                    >
+                      {p.cta.label}
+                    </a>
+
+                    {/* Botón opcional: volver arriba a los logos */}
+                    <a
+                      href="#top"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "12px 14px",
+                        borderRadius: 14,
+                        border: "1px solid rgba(255,255,255,.10)",
+                        background: "transparent",
+                        color: "rgba(255,255,255,.75)",
+                        textDecoration: "none",
+                      }}
+                    >
+                      ↑
+                    </a>
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+
+      {/* ancla para "volver arriba" */}
+      <div id="top" />
+    </div>
   );
 }

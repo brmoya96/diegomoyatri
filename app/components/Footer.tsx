@@ -45,13 +45,10 @@ function FooterLink({ href, children }: FooterLinkProps) {
       >
         {/* LEFT */}
         <div>
-          <h3 style={{ fontSize: 20, marginBottom: 16 }}>Diego Moya</h3>
+          <h3 style={{ fontSize: 20, marginBottom: 16 }}>Diego Moya Chamorro</h3>
 
           <p style={{ opacity: 0.75, lineHeight: 1.6 }}>
             Triatleta Profesional Chileno<br />
-            Ironman & 70.3<br />
-            Campeón IM 70.3 Valdivia<br />
-            Clasificado Olímpico
           </p>
 
           <div style={{ marginTop: 20, display: "grid", gap: 8 }}>

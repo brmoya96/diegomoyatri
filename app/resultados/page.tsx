@@ -14,7 +14,7 @@ export default function ResultadosPage() {
       <Header />
       <main style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 24px", color: "white" }}>
         <h1 style={{ fontSize: 44, marginBottom: 12 }}>Resultados</h1>
-        <p style={{ opacity: 0.8 }}>Trayectoria competitiva y hitos principales.</p>
+        <p style={{ opacity: 0.8 }}>Trayectoria competitiva e hitos principales.</p>
 
         <div style={{ marginTop: 28, display: "grid", gap: 14 }}>
           {results.map((r) => (
