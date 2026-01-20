@@ -73,7 +73,7 @@ const partners = [
 
 export default function PartnersPage() {
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div className="min-h-screen">
       <Header />
 
       {/* CONTENEDOR PRINCIPAL (MISMO FORMATO QUE RESULTADOS) */}
