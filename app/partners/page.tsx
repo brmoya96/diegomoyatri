@@ -26,7 +26,7 @@ const partners = [
     name: "SUBARU",
     logo: "/sponsors/subaru.png",
     text: "Subaru representa confiabilidad, rendimiento y seguridad, valores fundamentales tanto en el deporte como en la vida diaria. Su apoyo me permite enfocarme en entrenar y competir, sabiendo que cuento con un partner sólido en cada desafío.",
-    photo: "/partners/subaru.JPEG",
+    photo: "/partners/subaru.jpeg",
     cta: { href: "https://www.subaru.cl/", label: "Ver Subaru" },
   },
   {
