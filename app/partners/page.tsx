@@ -74,6 +74,7 @@ const partners = [
 export default function PartnersPage() {
   return (
     <div className="min-h-screen">
+      <div id="top" />
       <Header />
 
       {/* CONTENEDOR PRINCIPAL (MISMO FORMATO QUE RESULTADOS) */}
@@ -173,6 +174,7 @@ export default function PartnersPage() {
               <div
                 key={p.key}
                 id={p.key} // 👈 destino para el click del logo
+                className="partner-card"
                 style={{
                   scrollMarginTop: 140, // 👈 para que no quede tapado por el header
                   display: "grid",
@@ -187,6 +189,7 @@ export default function PartnersPage() {
               >
                 {/* FOTO */}
                 <div
+                  className="partner-photo"
                   style={{
                     gridColumn: "span 7 / span 7",
                     order: reverse ? 2 : 1,
@@ -225,6 +228,7 @@ export default function PartnersPage() {
 
                 {/* TEXTO */}
                 <div
+                  className="partner-text"
                   style={{
                     gridColumn: "span 5 / span 5",
                     order: reverse ? 1 : 2,
@@ -268,6 +272,7 @@ export default function PartnersPage() {
                     {/* Botón opcional: volver arriba a los logos */}
                     <a
                       href="#top"
+                      aria-label="Subir"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -291,7 +296,44 @@ export default function PartnersPage() {
       </main>
 
       {/* ancla para "volver arriba" */}
-      <div id="top" />
+      <style jsx>{`
+        /* Evita overflow raro en desktop */
+        .partner-card {
+          width: 100%;
+        }
+
+        /* Desktop: 2 columnas siempre */
+        @media (min-width: 901px) {
+          .partner-card {
+            grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+          }
+          .partner-photo {
+            grid-column: span 7 / span 7 !important;
+            order: 1;
+            min-height: 320px;
+          }
+          .partner-text {
+            grid-column: span 5 / span 5 !important;
+            order: 2;
+          }
+        }
+
+        /* Mobile: se apila */
+        @media (max-width: 900px) {
+          .partner-card {
+            grid-template-columns: 1fr !important;
+          }
+          .partner-photo {
+            grid-column: 1 / -1 !important;
+            order: 1 !important;
+            min-height: 220px;
+          }
+          .partner-text {
+            grid-column: 1 / -1 !important;
+            order: 2 !important;
+          }
+        }
+      `}</style> 
     </div>
   );
 }

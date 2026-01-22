@@ -75,7 +75,7 @@ export default function Header() {
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             <img
-              src="/logo-diego.png"
+              src="/logo-diego-1.png"
               alt="Diego Moya"
               className="dm-logo"
               style={{
