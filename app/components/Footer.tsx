@@ -1,31 +1,12 @@
 "use client";
+
+import React, { useState } from "react";
+
+const FORMSPREE_URL = "https://formspree.io/f/xlggkboz"; // <-- PEGA AQUÍ tu endpoint real
+
 export default function Footer() {
-    type FooterLinkProps = {
-  href: string;
-  children: React.ReactNode;
-};
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-function FooterLink({ href, children }: FooterLinkProps) {
-  const isExternal = href.startsWith("http");
-
-  return (
-    <a
-      href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noopener noreferrer" : undefined}
-      style={{
-        color: "inherit",
-        textDecoration: "none",
-        opacity: 0.75,
-        transition: "opacity .2s ease",
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-      onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.75")}
-    >
-      {children}
-    </a>
-  );
-}
   return (
     <footer
       style={{
@@ -45,17 +26,26 @@ function FooterLink({ href, children }: FooterLinkProps) {
       >
         {/* LEFT */}
         <div>
-          <h3 style={{ fontSize: 20, marginBottom: 16 }}>Diego Moya Chamorro</h3>
+          <h3 style={{ fontSize: 20, marginBottom: 16 }}>
+            Diego Moya Chamorro
+          </h3>
 
           <p style={{ opacity: 0.75, lineHeight: 1.6 }}>
-            Triatleta Profesional Chileno<br />
+            Triatleta Profesional Chileno
+            <br />
           </p>
 
           <div style={{ marginTop: 20, display: "grid", gap: 8 }}>
             <FooterLink href="https://linktr.ee/">→ Mi Linktree</FooterLink>
-            <FooterLink href="https://www.instagram.com/dieg0_moya/">→ Instagram</FooterLink>
-            <FooterLink href="https://www.facebook.com/diego.moyachamorro">→ Facebook</FooterLink>
-            <FooterLink href="https://www.youtube.com/@DiegoMoyaTRI">→ YouTube</FooterLink>
+            <FooterLink href="https://www.instagram.com/dieg0_moya/">
+              → Instagram
+            </FooterLink>
+            <FooterLink href="https://www.facebook.com/diego.moyachamorro">
+              → Facebook
+            </FooterLink>
+            <FooterLink href="https://www.youtube.com/@DiegoMoyaTRI">
+              → YouTube
+            </FooterLink>
           </div>
         </div>
 
@@ -81,30 +71,78 @@ function FooterLink({ href, children }: FooterLinkProps) {
             Recibe novedades
           </h4>
 
-          <div
-            style={{
-              border: "1px solid rgba(255,255,255,.25)",
-              display: "flex",
-              alignItems: "center",
-              padding: "12px 16px",
-              maxWidth: 320,
+          {/* FORM REAL -> guarda emails */}
+          <form
+            action={FORMSPREE_URL}
+            method="POST"
+            onSubmit={() => {
+              // Esto solo cambia el mensajito visual; Formspree igual procesa el envío.
+              // Si quieres hacerlo 100% sin recargar, te lo dejo en versión fetch.
+              setTimeout(() => setStatus("success"), 400);
             }}
+            style={{ maxWidth: 320 }}
           >
-            <input
-              placeholder="E-mail"
+            <div
               style={{
-                background: "transparent",
-                border: "none",
-                outline: "none",
-                color: "white",
-                flex: 1,
+                border: "1px solid rgba(255,255,255,.25)",
+                display: "flex",
+                alignItems: "center",
+                padding: "12px 16px",
               }}
-            />
-            <span style={{ opacity: 0.6 }}>→</span>
-          </div>
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                required
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  outline: "none",
+                  color: "white",
+                  flex: 1,
+                }}
+              />
+
+              {/* Flecha como botón submit (clickeable) */}
+              <button
+                type="submit"
+                aria-label="Suscribirse"
+                style={{
+                  border: "none",
+                  background: "transparent",
+                  color: "rgba(255,255,255,.75)",
+                  cursor: "pointer",
+                  padding: 0,
+                  marginLeft: 10,
+                  fontSize: 16,
+                  lineHeight: 1,
+                  transition: "opacity .2s ease",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.75")}
+              >
+                →
+              </button>
+            </div>
+
+            {/* Mensaje chiquito (opcional) */}
+            {status === "success" && (
+              <div style={{ marginTop: 10, fontSize: 12, opacity: 0.75 }}>
+                ¡Listo! Te agregamos a la lista.
+              </div>
+            )}
+            {status === "error" && (
+              <div style={{ marginTop: 10, fontSize: 12, opacity: 0.75 }}>
+                Hubo un error. Intenta de nuevo.
+              </div>
+            )}
+          </form>
 
           <div style={{ display: "flex", gap: 16, marginTop: 24 }}>
-            <SocialIcon href="https://www.facebook.com/diego.moyachamorro">f</SocialIcon>
+            <SocialIcon href="https://www.facebook.com/diego.moyachamorro">
+              f
+            </SocialIcon>
             <SocialIcon href="https://www.instagram.com/dieg0_moya">◯</SocialIcon>
             <SocialIcon href="https://www.youtube.com/@DiegoMoyaTRI">▶</SocialIcon>
           </div>
@@ -127,6 +165,7 @@ function FooterLink({ href, children }: FooterLinkProps) {
     </footer>
   );
 }
+
 function FooterLink({
   href,
   children,
@@ -134,12 +173,17 @@ function FooterLink({
   href: string;
   children: React.ReactNode;
 }) {
+  const isExternal = href.startsWith("http");
+
   return (
     <a
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       style={{
+        color: "inherit",
         textDecoration: "none",
-        color: "rgba(255,255,255,.75)",
+        opacity: 0.75,
         transition: "opacity .2s ease",
       }}
       onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
@@ -161,6 +205,7 @@ function SocialIcon({
     <a
       href={href}
       target="_blank"
+      rel="noopener noreferrer"
       style={{
         width: 36,
         height: 36,
