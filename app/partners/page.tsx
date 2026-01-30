@@ -39,7 +39,7 @@ const partners = [
   },
   {
     key: "alemanasport",
-    name: "ALEMANAS PORT",
+    name: "ALEMANA SPORT",
     logo: "/sponsors/alemana-sport.png",
     text: "Alemana Sport me acompaña como aliado técnico, entregando equipamiento y soporte especializado para el alto rendimiento. Compartimos una visión clara: cuidar cada detalle para competir al máximo nivel.",
     photo: "/partners/alemana-sport.png",

@@ -3,7 +3,26 @@
 import React, { useState } from "react";
 
 const FORMSPREE_URL = "https://formspree.io/f/xlggkboz"; // <-- PEGA AQUÍ tu endpoint real
-
+const TikTokIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21 8.5a6.5 6.5 0 0 1-4.3-1.6v8.4a6 6 0 1 1-5.3-6V12a3 3 0 1 0 2.3 2.9V2h3a6.5 6.5 0 0 0 4.3 4.2v2.3Z" />
+  </svg>
+);
+const YouTubeIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23 12s0-4.3-.5-6.1a3 3 0 0 0-2.1-2.1C18.6 3.3 12 3.3 12 3.3s-6.6 0-8.4.5a3 3 0 0 0-2.1 2.1C1 7.7 1 12 1 12s0 4.3.5 6.1a3 3 0 0 0 2.1 2.1c1.8.5 8.4.5 8.4.5s6.6 0 8.4-.5a3 3 0 0 0 2.1-2.1c.5-1.8.5-6.1.5-6.1ZM10 15.5v-7l6 3.5-6 3.5Z" />
+  </svg>
+);
+const InstagramIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7Zm6-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" />
+  </svg>
+);
+const FacebookIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2V9.5c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.4 3h-1.8v7A10 10 0 0 0 22 12Z" />
+  </svg>
+);
 export default function Footer() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -60,8 +79,8 @@ export default function Footer() {
             <FooterLink href="/partners">Partners</FooterLink>
             <FooterLink href="/media">Media</FooterLink>
             <FooterLink href="/contacto">Contacto</FooterLink>
-            <FooterLink href="/legal">Protección de datos</FooterLink>
-            <FooterLink href="/faq">FAQ</FooterLink>
+            <FooterLink href="/legal">Legal</FooterLink>
+          
           </div>
         </div>
 
@@ -140,12 +159,22 @@ export default function Footer() {
           </form>
 
           <div style={{ display: "flex", gap: 16, marginTop: 24 }}>
-            <SocialIcon href="https://www.facebook.com/diego.moyachamorro">
-              f
-            </SocialIcon>
-            <SocialIcon href="https://www.instagram.com/dieg0_moya">◯</SocialIcon>
-            <SocialIcon href="https://www.youtube.com/@DiegoMoyaTRI">▶</SocialIcon>
-          </div>
+  <SocialIcon href="https://www.facebook.com/diego.moyachamorro">
+    <FacebookIcon />
+  </SocialIcon>
+
+  <SocialIcon href="https://www.instagram.com/dieg0_moya">
+    <InstagramIcon />
+  </SocialIcon>
+
+  <SocialIcon href="https://www.youtube.com/@DiegoMoyaTRI">
+    <YouTubeIcon />
+  </SocialIcon>
+
+  <SocialIcon href="https://www.tiktok.com/@dieg0_moya">
+    <TikTokIcon />
+  </SocialIcon>
+</div>
         </div>
       </div>
 

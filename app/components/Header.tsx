@@ -7,7 +7,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const items = [
-    { href: "/presentacion", label: "Presentación" },
+    { href: "/presentacion", label: "Presentacion" },
     { href: "/partners", label: "Partners" },
     { href: "/resultados", label: "Resultados" },
     { href: "/coaching", label: "Coaching" },
@@ -75,7 +75,7 @@ export default function Header() {
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             <img
-              src="/logo-diego-1.png"
+              src="/logo-diego-4.png"
               alt="Diego Moya"
               className="dm-logo"
               style={{

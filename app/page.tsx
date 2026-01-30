@@ -7,12 +7,12 @@ import Header from "./components/Header";
 
 const sponsors = [
   { name: "Adidas", file: "adidas.png" },
-  { name: "Itaú", file: "itau.png" },
-  { name: "Subaru", file: "subaru.png" },
+  { name: "Alemana Sport", file: "alemana-sport.png" },
   { name: "Z2", file: "z2.png" },
+  { name: "Subaru", file: "subaru.png" },
   { name: "Factor", file: "factor.png" },
   { name: "Blueseventy", file: "blueseventy.png" },
-  { name: "Alemana Sport", file: "alemana-sport.png" },
+  { name: "Itaú", file: "itau.png" },
   { name: "Socks Labs", file: "socks-labs.png" },
 ];
 
@@ -60,7 +60,7 @@ function Banner() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.65))",
+          background: "transparent",
           pointerEvents: "none",
         }}
       />

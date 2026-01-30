@@ -2,44 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --bg: #070a11;
 }
 
-html, body {
-  height: 100%;
+/* Evita cortes de fondo */
+html,
+body {
+  min-height: 100%;
+  margin: 0;
 }
 
-body{
+/* FONDO CONTINUO (fix definitivo de la línea) */
+body {
   background:
-    radial-gradient(900px 500px at 15% -10%, rgba(239,68,68,.22), transparent 60%),
-    radial-gradient(800px 450px at 90% 0%, rgba(59,130,246,.14), transparent 60%),
-    radial-gradient(700px 450px at 80% 80%, rgba(34,197,94,.12), transparent 60%),
-    linear-gradient(180deg, #05060b, var(--bg) 40%, #05060b);
+    radial-gradient(900px 500px at 15% -10%, rgba(239,68,68,.22), transparent 65%),
+    radial-gradient(800px 450px at 90% 0%, rgba(59,130,246,.14), transparent 65%),
+    radial-gradient(700px 450px at 80% 80%, rgba(34,197,94,.12), transparent 65%),
+    linear-gradient(180deg, #05060b 0%, var(--bg) 55%, #05060b 100%);
+
+  /* 🔑 claves para que NO se repita ni corte */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
   color: #e5e7eb;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.glass{
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+/* Glass cards */
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.03)
+  );
   border: 1px solid rgba(255,255,255,.10);
   backdrop-filter: blur(10px);
 }
 
-.text-muted{
+/* Text helper */
+.text-muted {
   color: rgba(229,231,235,.72);
 }
-html { scroll-behavior: smooth; }
-/* Header responsive */
+
+/* Smooth scroll para anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =======================
+   HEADER RESPONSIVE
+======================= */
+
+/* Desktop */
 @media (min-width: 901px) {
   .dm-burger {
     display: none !important;
   }
+
   .dm-mobile-panel {
     display: none !important;
   }
 }
 
+/* Mobile */
 @media (max-width: 900px) {
   .dm-desktop-nav-wrap {
     display: none !important;
@@ -81,4 +108,12 @@ html { scroll-behavior: smooth; }
     letter-spacing: 0.18em;
     font-size: 12px;
   }
+}
+
+/* Remove arrow from details/summary */
+summary::-webkit-details-marker {
+  display: none;
+}
+img {
+  filter: brightness(1.5);
 }

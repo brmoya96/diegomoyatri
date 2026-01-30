@@ -12,8 +12,10 @@ export default function MediaPage() {
           {[
             ["Instagram", "@dieg0_moya", "https://instagram.com/dieg0_moya"],
             ["YouTube", "DiegoMoyaTRI", "https://www.youtube.com/@DiegoMoyaTRI"],
-            ["Strava", "Diego Alonso Moya Chamorro", "https://www.strava.com/"],
-            ["Podcast", "DSD ADENTRO PODCAST", "https://open.spotify.com/"],
+            ["TikTok", "@dieg0_moya", "https://www.tiktok.com/@dieg0_moya"],
+            ["Facebook", "diego.moyachamorro", "https://www.facebook.com/diego.moyachamorro"],
+            ["Strava", "Diego Alonso Moya Chamorro", "https://www.strava.com/athletes/61792800?oq=diego"],
+            ["Podcast", "DSD ADENTRO PODCAST", "https://open.spotify.com/show/4wib7MD0IVxniIvl8awjAO"],
           ].map(([label, value, href]) => (
             <a
               key={label}
