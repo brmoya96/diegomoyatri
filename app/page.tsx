@@ -8,11 +8,11 @@ import Header from "./components/Header";
 const sponsors = [
   { name: "Adidas", file: "adidas.png" },
   { name: "Alemana Sport", file: "alemana-sport.png" },
-  { name: "Z2", file: "z2.png" },
+ { name: "Itaú", file: "itau.png" },
   { name: "Subaru", file: "subaru.png" },
   { name: "Factor", file: "factor.png" },
   { name: "Blueseventy", file: "blueseventy.png" },
-  { name: "Itaú", file: "itau.png" },
+    { name: "Z2", file: "z2.png" },
   { name: "Socks Labs", file: "socks-labs.png" },
 ];
 
